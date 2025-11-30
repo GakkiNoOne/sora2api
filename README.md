@@ -10,7 +10,7 @@
 - 后续刷新优先使用已绑定的 client_id
 
 📦 **镜像更新**
-- Docker 镜像：`ghcr.io/gakkinoone/sora2api:latest`
+- Docker 镜像：`ghcr.io/gakkinoone/sora2api:dev`
 
 ### 🔄 数据库迁移说明
 
@@ -55,7 +55,7 @@ version: '3.8'
 
 services:
   sora2api:
-    image: ghcr.io/gakkinoone/sora2api:latest
+    image: ghcr.io/gakkinoone/sora2api:dev
     container_name: sora2api
     ports:
       - "8000:8000"
