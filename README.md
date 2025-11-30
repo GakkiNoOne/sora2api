@@ -12,6 +12,36 @@
 📦 **镜像更新**
 - Docker 镜像：`ghcr.io/gakkinoone/sora2api:latest`
 
+### 🔄 数据库迁移说明
+
+如果从旧版本升级，需要为 `tokens` 表添加 `client_id` 字段。
+
+**方式一：自动迁移（推荐）**
+
+程序启动时会自动检测并添加新字段，无需手动操作。
+
+**方式二：手动迁移**
+
+```sql
+-- 进入数据目录
+cd data
+
+-- 使用 sqlite3 执行
+sqlite3 hancat.db "ALTER TABLE tokens ADD COLUMN client_id TEXT;"
+```
+
+**方式三：重新开始**
+
+如果不需要保留旧数据，可以直接删除数据库：
+
+```bash
+# 删除数据库文件
+rm -f data/hancat.db
+
+# 重启服务，会自动创建新数据库
+docker-compose restart
+```
+
 ---
 
 ## 快速开始
