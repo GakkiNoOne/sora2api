@@ -4,7 +4,7 @@
 
 ## 主要改动
 
-🆕 **支持多 Client ID 刷新机制**
+⭐ **支持多 Client ID 刷新机制**
 - 配置多个 client_id（逗号分隔），自动依次尝试
 - 刷新成功后自动记录并绑定 client_id
 - 后续刷新优先使用已绑定的 client_id
@@ -15,6 +15,29 @@
 ---
 
 ## 快速开始
+
+### Docker Compose 配置
+
+`docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  sora2api:
+    image: ghcr.io/gakkinoone/sora2api:latest
+    container_name: sora2api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./config/setting.toml:/app/config/setting.toml
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+```
+
+### 启动命令
 
 ```bash
 git clone https://github.com/GakkiNoOne/sora2api.git
@@ -59,9 +82,9 @@ docker-compose up -d
 | | `custom_parse_url` | `""` | 自定义解析服务 URL |
 | | `custom_parse_token` | `""` | 自定义解析服务 Token |
 | **[token_refresh]** | `at_auto_refresh_enabled` | `false` | 是否启用 AT 自动刷新 |
-| | `client_ids` 🆕 | `"app_LlGpXReQgckcGGUo2JrYvtJK,app_WXrF1LSkiTtfYqiL6XtjygvX"` | Client ID 列表（逗号分隔） |
+| | `client_ids` ⭐ | `"app_LlGpXReQgckcGGUo2JrYvtJK,app_WXrF1LSkiTtfYqiL6XtjygvX"` | Client ID 列表（逗号分隔） |
 
-### 🆕 新增配置项详细说明
+### ⭐ 新增配置项详细说明
 
 **client_ids** - Client ID 列表
 - **格式**: 多个 client_id 用逗号分隔
