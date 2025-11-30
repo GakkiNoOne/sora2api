@@ -44,3 +44,4 @@ custom_parse_token = ""
 
 [token_refresh]
 at_auto_refresh_enabled = false
+client_ids = "app_LlGpXReQgckcGGUo2JrYvtJK,app_WXrF1LSkiTtfYqiL6XtjygvX"
